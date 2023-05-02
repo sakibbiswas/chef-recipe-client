@@ -4,6 +4,7 @@ import Footer from '../shared/footer/Footer';
 import { Col, Container, Row } from 'react-bootstrap';
 import Leftnav from '../shared/leftnav/Leftnav';
 import Rightnav from '../shared/Rightnav/Rightnav';
+import Slider from '../slider/Slider';
 
 const Main = () => {
     return (
@@ -17,6 +18,7 @@ const Main = () => {
                     </Col>
                     <Col lg={6}>
                         <h2>main content</h2>
+
                     </Col>
                     <Col lg={3}>
                         <Rightnav></Rightnav>
