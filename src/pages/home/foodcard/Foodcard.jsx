@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Foodcard = ({ country }) => {
-    const { name, img, image_url, title } = country
+    const { _id, name, img, image_url, title, experience, Numbers_of_recipes } = country
     return (
         <div>
             <Row md={1} className="g-1">
@@ -13,14 +14,17 @@ const Foodcard = ({ country }) => {
                         <Card.Body>
                             <Card.Title>{title}</Card.Title>
                             <Card.Text>
-                                This is a longer card with supporting text below as a natural
-                                lead-in to additional content. This content is a little bit
-                                longer.
+                                <div className="">
+                                    <p className='fw-semibold'>Years of experience:{experience} </p>
+                                    <p> Numbers of recipes : {Numbers_of_recipes}</p>
+                                </div>
                             </Card.Text>
-                            <div className='d-flex gap-4'>
+
+                            <Link to={`/chef/${_id}`}>
                                 <Button variant="primary">View Recipes</Button>
-                                <Button variant="primary">Go somewhere</Button>
-                            </div>
+                            </Link>
+
+
                         </Card.Body>
                     </Card>
                 </Col>
