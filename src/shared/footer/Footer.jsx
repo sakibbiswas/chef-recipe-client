@@ -5,7 +5,6 @@ import { Container } from 'react-bootstrap';
 const Footer = () => {
     return (
         <Container>
-            <h2 className='text-center'>This is footer</h2>
 
             <MDBFooter bgColor='light' className='text-center text-lg-start text-muted'>
                 <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>

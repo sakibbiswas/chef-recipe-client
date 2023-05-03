@@ -3,7 +3,7 @@ import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Foodcard = ({ country }) => {
-    const { _id, name, img, image_url, title, experience, Numbers_of_recipes } = country
+    const { _id, name, img, image_url, author, title, experience, Numbers_of_recipes, likes } = country
     return (
         <div>
             <Row md={1} className="g-1">
@@ -16,9 +16,10 @@ const Foodcard = ({ country }) => {
                             <Card.Text>
                                 <div className="">
                                     <p className='fw-semibold'>Years of experience:{experience} </p>
-                                    <p> Numbers of recipes : {Numbers_of_recipes}</p>
+                                    <p className='fw-semibold'> Numbers of recipes : {Numbers_of_recipes}</p>
                                 </div>
                             </Card.Text>
+                            <p className='fw-semibold'>Likes : {author.likes}</p>
 
                             <Link to={`/chef/${_id}`}>
                                 <Button variant="primary">View Recipes</Button>

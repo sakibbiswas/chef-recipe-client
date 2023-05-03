@@ -7,7 +7,7 @@ import Footer from '../shared/footer/Footer';
 
 const Cheflayout = () => {
     return (
-        <div>
+        <Container>
             <Header></Header>
             <Container className='mt-3'>
 
@@ -23,7 +23,7 @@ const Cheflayout = () => {
                 </Row>
             </Container>
             <Footer></Footer>
-        </div>
+        </Container>
     );
 };
 
