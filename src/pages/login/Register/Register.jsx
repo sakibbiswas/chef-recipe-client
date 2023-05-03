@@ -6,9 +6,12 @@ import { Authcontext } from '../../../providers/Authprovider';
 import { useState } from 'react';
 
 const Register = () => {
+    const [error, seterror] = useState('')
+    const [success, setsucces] = useState('')
     const { createuser } = useContext(Authcontext);
     const [Accepted, setAccepted] = useState(false);
     const handelregister = (event) => {
+        setsucces('')
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
@@ -20,9 +23,13 @@ const Register = () => {
             .then(result => {
                 const loggeduser = result.user;
                 console.log(loggeduser);
+                seterror('')
+                event.target.reset()
+                setsucces('User has created successfully')
             })
             .catch(error => {
                 console.log(error);
+                seterror(error.message)
             })
     }
 
@@ -70,7 +77,8 @@ const Register = () => {
                     Already have an account ?  <Link to='/login'>Login</Link>
                 </Form.Text>
                 <Form.Text className="text-success">
-
+                    <p className='text-danger'>{error}</p>
+                    <p className='text-success'>{success}</p>
                 </Form.Text>
                 <Form.Text className="text-danger">
 
