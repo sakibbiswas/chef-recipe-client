@@ -9,6 +9,8 @@ import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 
 const Details = () => {
@@ -37,7 +39,16 @@ const Details = () => {
         <Container>
 
             <Card className='mb-4' >
-                <Card.Img variant="top" src={image_url} />
+                {/* <LazyLoadImage>
+                    <Card.Img variant="top" src={image_url} />
+                </LazyLoadImage> */}
+
+                <LazyLoadImage variant='top' effect="blur"
+                    className='w-100' src={image_url} />
+
+
+
+
                 <Card.Body>
                     <Card.Title>{title}</Card.Title>
                     <Card.Text>
@@ -53,7 +64,14 @@ const Details = () => {
 
                     <Col>
                         <Card className='mb-4'>
-                            <Card.Img variant='top' src={pic1} />
+
+                            <LazyLoadImage variant='top' effect="blur"
+                                className='w-100' src={pic1} />
+                            {/* <Card.Img variant='top' src={pic3} /> */}
+
+
+
+
                             <Card.Body>
                                 <Card.Title> Haleem</Card.Title>
                                 <Card.Text>
@@ -73,7 +91,14 @@ const Details = () => {
                     </Col>
                     <Col >
                         <Card>
-                            <Card.Img variant="top" src={pic2} />
+
+                            <LazyLoadImage variant='top' effect="blur"
+                                className='w-100' src={pic2} />
+                            {/* <Card.Img variant='top' src={pic3} /> */}
+
+
+
+
                             <Card.Body>
                                 <Card.Title>Seekh Kebab</Card.Title>
                                 <Card.Text>
@@ -91,7 +116,11 @@ const Details = () => {
                     </Col>
                     <Col >
                         <Card>
-                            <Card.Img variant="top" src={pic3} />
+                            <LazyLoadImage variant='top' effect="blur"
+                                className='w-100' src={pic3} />
+
+
+
                             <Card.Body>
                                 <Card.Title> Falooda </Card.Title>
                                 <Card.Text>

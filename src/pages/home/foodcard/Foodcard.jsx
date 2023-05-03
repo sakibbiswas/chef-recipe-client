@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import { Link } from 'react-router-dom';
 
 const Foodcard = ({ country }) => {
@@ -10,12 +12,13 @@ const Foodcard = ({ country }) => {
 
                 <Col>
                     <Card className=' mb-3'>
-                        <Card.Img variant="top" src={image_url} />
+                        <LazyLoadImage variant='top' effect="blur"
+                            className='w-100' alt={image_url.alt} src={image_url} />
                         <Card.Body>
                             <Card.Title>{title}</Card.Title>
                             <Card.Text>
                                 <div className="">
-                                    <p className='fw-semibold'>Years of experience:{experience} </p>
+                                    <p className='fw-semibold'>Years of experience{experience} </p>
                                     <p className='fw-semibold'> Numbers of recipes : {Numbers_of_recipes}</p>
                                 </div>
                             </Card.Text>

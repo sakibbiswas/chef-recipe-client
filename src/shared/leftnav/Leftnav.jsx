@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import pic1 from '../../../public/assets/berries-2277__340.jpg'
 import pic2 from '../../../public/assets/Good_Food_Display_-_NCI_Visuals_Online.jpg'
 import pic3 from '../../../public/assets/spaghetti-1932466__340.jpg'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Leftnav = () => {
     const [countries, setcountries] = useState([])
@@ -30,7 +32,7 @@ const Leftnav = () => {
             <Row xs={1} md={2} lg={1} className="g-4 mt-4">
                 <Col>
                     <Card>
-                        <Card.Img variant="top" src={pic1} />
+                        <LazyLoadImage effect="blur" className='w-100' variant="top" src={pic1} />
                         <Card.Body>
                             <Card.Title>Convenience foods</Card.Title>
                             <Card.Text>
@@ -41,7 +43,7 @@ const Leftnav = () => {
                 </Col>
                 <Col>
                     <Card>
-                        <Card.Img variant="top" src={pic2} />
+                        <LazyLoadImage effect="blur" className='w-100' variant="top" src={pic2} />
                         <Card.Body>
                             <Card.Title>Appetizers</Card.Title>
                             <Card.Text>
@@ -52,7 +54,7 @@ const Leftnav = () => {
                 </Col>
                 <Col>
                     <Card>
-                        <Card.Img variant="top" src={pic3} />
+                        <LazyLoadImage effect="blur" className='w-100' variant="top" src={pic3} />
                         <Card.Body>
                             <Card.Title>Confectionery</Card.Title>
                             <Card.Text>
