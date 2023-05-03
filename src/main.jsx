@@ -4,7 +4,7 @@ import './index.css'
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { RouterProvider } from 'react-router-dom';
+import { Navigate, RouterProvider } from 'react-router-dom';
 import {
   createBrowserRouter,
 } from "react-router-dom";
@@ -13,30 +13,51 @@ import Home from './pages/home/Home/Home.jsx';
 import Country from './pages/home/country/Country';
 import Cheflayout from './layouts/Cheflayout';
 import Details from './pages/details/deatils/Details';
+import Loginlayout from './layouts/Loginlayout';
+import Login from './pages/login/Login/Login';
+import Authprovider from './providers/Authprovider';
+import Register from './pages/login/Register/Register';
+import Privaterout from './route/privaterout/Privaterout';
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Main></Main>,
+    path: '/',
+    element: <Navigate to="/country"></Navigate>
+  },
+  {
+    path: '/',
+    element: <Loginlayout></Loginlayout>,
     children: [
+
       {
-        path: '/',
-        element: <Home></Home>
+        path: '/login',
+        element: <Login></Login>
       },
       {
-        path: '/country/:id',
+        path: '/register',
+        element: <Register></Register>
+      },
+    ]
+  },
+  {
+    path: "country",
+    element: <Main></Main>,
+    children: [
+
+      {
+        path: ':id',
         element: <Country></Country>,
         loader: ({ params }) => fetch(`http://localhost:5000/countries/${params.id}`)
       }
     ]
   },
   {
-    path: '/chef',
+    path: 'chef',
     element: <Cheflayout></Cheflayout>,
 
     children: [
       {
         path: ':id',
-        element: <Details></Details>,
+        element: <Privaterout> <Details></Details></Privaterout>,
         loader: ({ params }) => fetch(`http://localhost:5000/chef/${params.id}`)
       }
     ]
@@ -45,6 +66,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Authprovider>
+      <RouterProvider router={router} />
+    </Authprovider>
   </React.StrictMode>,
 )

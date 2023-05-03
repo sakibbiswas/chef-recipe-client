@@ -52,14 +52,12 @@ const Details = () => {
                 <Row xs={1} md={3} className="g-4">
 
                     <Col>
-                        <Card>
+                        <Card className='mb-4'>
                             <Card.Img variant='top' src={pic1} />
                             <Card.Body>
                                 <Card.Title> Haleem</Card.Title>
                                 <Card.Text>
-                                    This is a longer card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit
-                                    longer.
+                                    Haleem is an Arabic dish. It is a popular stew made with meat—usually beef or mutton—lentils, barley, and spices. It is sold on street stalls and in bazaars (markets) as a snack, and making haleem involves a lengthy and complex process. It can be served with mint,
                                 </Card.Text>
                                 <div className="flex-grow-1 mb-3 d-flex align-items-center ">
                                     <Rating style={{ maxWidth: 250 }} value={Math.round(rating?.number || 0)} readOnly />
@@ -79,9 +77,7 @@ const Details = () => {
                             <Card.Body>
                                 <Card.Title>Seekh Kebab</Card.Title>
                                 <Card.Text>
-                                    This is a longer card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit
-                                    longer.
+                                    Seekh Kebab is a Turkish dish that has become very popular in Bangladesh. The beef is prepared with various spices creating unique flavors. It is a delicious appetizer, soft and succulent and seasoned with ginger, garlic, green chili pepper, powdered chili,
                                 </Card.Text>
                                 <div className="flex-grow-1 
                                mb-3 d-flex align-items-center ">
@@ -99,9 +95,7 @@ const Details = () => {
                             <Card.Body>
                                 <Card.Title> Falooda </Card.Title>
                                 <Card.Text>
-                                    This is a longer card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit
-                                    longer.
+                                    Falooda is a well known cold dessert made by mixing rose syrup and sweet basil seeds with milk, noodles, ice cream, and vermicelli. But in Bangladesh, it is made it a little differently. Here, it is made with pandan extract, pistachios, sago pearls, creamed coconut mango,
                                 </Card.Text>
                                 <div className="flex-grow-1 mb-3 d-flex align-items-center ">
                                     <Rating style={{ maxWidth: 250 }} value={Math.round(rating?.number || 0)} readOnly />

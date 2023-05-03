@@ -7,7 +7,7 @@ const Country = () => {
     const countrydata = useLoaderData()
     return (
         <div>
-            <h2>this is country {id}</h2>
+
             {
                 countrydata.map(country => <Foodcard
                     key={country._id}
