@@ -1,6 +1,6 @@
 import React from 'react';
 import { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../firebase/firebase.config';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -13,9 +13,18 @@ import { GithubAuthProvider } from "firebase/auth";
 
 const githubprovider = new GithubAuthProvider();
 
+const user = auth.currentUser;
+if (user !== null) {
+    const displayName = user.displayName;
+    const email = user.email;
+    const photoURL = user.photoURL;
+    const emailVerified = user.emailVerified;
+    const uid = user.uid;
+}
 const Authprovider = ({ children }) => {
     const [user, setuser] = useState(null)
     const [loading, setloading] = useState(true);
+
 
     const createuser = (email, password) => {
         setloading(true)
@@ -38,6 +47,14 @@ const Authprovider = ({ children }) => {
         setloading(true)
         signOut(auth)
     }
+    const update = () => {
+        setloading(true)
+        return updateProfile(auth.currentUser, {
+
+            displayName: 'sakib sakib', photoURL: "https://lh3.googleusercontent.com/a/AGNmyxYPhTNZa-MgG3FKlbq62ZZsVaRRpxLioO-MOSvN=s96-c"
+        })
+
+    }
     useEffect(() => {
         const unsuccribe = onAuthStateChanged(auth, loggeduser => {
             console.log('logged in user null', loggeduser);
@@ -56,7 +73,8 @@ const Authprovider = ({ children }) => {
         signIN,
         logOut,
         singnInGoogle,
-        githubsignIn
+        githubsignIn,
+        update,
     }
     return (
         <Authcontext.Provider value={authinfo}>

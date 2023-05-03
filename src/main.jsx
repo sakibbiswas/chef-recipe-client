@@ -21,6 +21,7 @@ import Privaterout from './route/privaterout/Privaterout';
 import Rightnav from './shared/Rightnav/Rightnav';
 import Error from './errorpage/Error';
 import Errorlayout from './layouts/Errorlayout/Errorlayout';
+import Qustion from './pages/Qustion/Qustion';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -31,18 +32,13 @@ const router = createBrowserRouter([
     element: <Loginlayout></Loginlayout>,
     children: [
 
-      {
-        path: '/login',
-        element: <Login></Login>
-      },
-      {
-        path: '/register',
-        element: <Register></Register>
-      },
+
       {
         path: '/googlelogin',
         element: <Rightnav></Rightnav>
       },
+
+
 
 
     ]
@@ -54,7 +50,21 @@ const router = createBrowserRouter([
       {
         path: '/error',
         element: <Error></Error>,
-      }
+      },
+      {
+        path: '/qustion',
+        element: <Qustion></Qustion>,
+      },
+
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <Register></Register>
+      },
+
     ]
   },
   {

@@ -1,13 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
-import Slider from '../../slider/Slider';
 import { Link } from 'react-router-dom';
 import { Authcontext } from '../../providers/Authprovider';
 import ActiveLink from '../../activeLink/ActiveLink';
 
-
-const Header = () => {
-
+const Navigation = () => {
     const { user, logOut } = useContext(Authcontext)
     const handellogOut = () => {
         logOut()
@@ -25,22 +22,19 @@ const Header = () => {
                     <Navbar.Brand href="#home" className='text-opacity-100 text-secondary fw-bold fs-3'>Food-Hunter</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="mx-auto  ">
-
-
+                        <Nav className="mx-auto">
                             <Nav.Link className=' fw-semibold d-flex text-secondary text-decoration-none align-items-center ms-4' >
-                                <ActiveLink className='fw-semibold d-flex text-secondary text-decoration-none align-items-center ms-4 ' to="/country/0">Home</ActiveLink>
+                                <ActiveLink className='fw-semibold d-flex text-secondary text-decoration-none align-items-center ms-4' to="/country/0">Home</ActiveLink>
                             </Nav.Link>
 
 
                             <Nav.Link className=' fw-semibold d-flex text-secondary text-decoration-none align-items-center ms-4' >
-                                <ActiveLink className='fw-semibold d-flex text-secondary text-decoration-none align-items-center ms-4 ' to="/qustion">Blog</ActiveLink>
+                                <ActiveLink className='fw-semibold d-flex text-secondary text-decoration-none align-items-center ms-4' to="/qustion">Blog</ActiveLink>
                             </Nav.Link>
 
                             <Nav.Link className=' fw-semibold d-flex text-secondary text-decoration-none align-items-center ms-4' >
-                                <ActiveLink className=' fw-semibold d-flex text-secondary text-decoration-none align-items-center ms-4' to="/error">Error</ActiveLink>
+                                <ActiveLink to="/error">Error</ActiveLink>
                             </Nav.Link>
-
                         </Nav>
                         <Nav className='gap-3'>
                             {user &&
@@ -62,10 +56,10 @@ const Header = () => {
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
-            </Navbar >
-            <Slider></Slider>
-        </Container >
+            </Navbar>
+
+        </Container>
     );
 };
 
-export default Header;
+export default Navigation;

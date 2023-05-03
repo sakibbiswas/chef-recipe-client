@@ -7,7 +7,7 @@ import { Authcontext } from '../../../providers/Authprovider';
 const Login = () => {
     const [error, seterror] = useState('')
     const [success, setsucces] = useState('')
-    const { signIN } = useContext(Authcontext)
+    const { signIN, update } = useContext(Authcontext)
     const location = useLocation();
     const from = location.state?.from?.pathname || '/country/0'
     console.log(location);
@@ -38,6 +38,14 @@ const Login = () => {
                 console.log(error);
                 seterror(error.message)
             })
+        update()
+            .then(() => {
+                // Profile updated!
+                // ...
+            }).catch((error) => {
+                // An error occurred
+                // ...
+            });
 
     }
     return (

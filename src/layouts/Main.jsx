@@ -18,7 +18,7 @@ const Main = () => {
                         <Leftnav></Leftnav>
                     </Col>
                     <Col lg={6}>
-
+                        {/* <Slider></Slider> */}
                         <Outlet></Outlet>
 
                     </Col>

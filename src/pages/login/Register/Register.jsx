@@ -67,7 +67,7 @@ const Register = () => {
                         onClick={handelaccept}
                         type="checkbox"
                         name='Accept'
-                        label={<>Accept  <Link to='/terms'>Terms and and condition</Link></>} />
+                        label="Accept Terms and and condition" />
                 </Form.Group>
                 <Button variant="primary" disabled={!Accepted} type="submit">
                     Register
