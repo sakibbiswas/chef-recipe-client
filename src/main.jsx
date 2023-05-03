@@ -19,6 +19,8 @@ import Authprovider from './providers/Authprovider';
 import Register from './pages/login/Register/Register';
 import Privaterout from './route/privaterout/Privaterout';
 import Rightnav from './shared/Rightnav/Rightnav';
+import Error from './errorpage/Error';
+import Errorlayout from './layouts/Errorlayout/Errorlayout';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -41,6 +43,18 @@ const router = createBrowserRouter([
         path: '/googlelogin',
         element: <Rightnav></Rightnav>
       },
+
+
+    ]
+  },
+  {
+    path: '/',
+    element: <Errorlayout></Errorlayout>,
+    children: [
+      {
+        path: '/error',
+        element: <Error></Error>,
+      }
     ]
   },
   {
@@ -65,6 +79,7 @@ const router = createBrowserRouter([
         element: <Privaterout> <Details></Details></Privaterout>,
         loader: ({ params }) => fetch(`http://localhost:5000/chef/${params.id}`)
       }
+
     ]
   }
 ])

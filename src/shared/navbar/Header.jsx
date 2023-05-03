@@ -1,10 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
-import man from '../../../public/assets/man.png'
 import Slider from '../../slider/Slider';
 import { Link } from 'react-router-dom';
 import { Authcontext } from '../../providers/Authprovider';
-import Loginlayout from '../../layouts/Loginlayout';
+
 
 const Header = () => {
 
@@ -28,7 +27,9 @@ const Header = () => {
                         <Nav className="mx-auto">
 
                             <Link className='d-flex text-black text-decoration-none align-items-center' to="/country/0">Home</Link>
-                            <Nav.Link href="#pricing">Blog</Nav.Link>
+                            <Link className='d-flex text-black text-decoration-none align-items-center' to="/error">Blog</Link>
+
+                            <Link className='d-flex text-black text-decoration-none align-items-center' to="/error">Error</Link>
 
                         </Nav>
                         <Nav className='gap-3'>
