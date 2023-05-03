@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
 import man from '../../../public/assets/man.png'
 import Slider from '../../slider/Slider';
@@ -7,6 +7,7 @@ import { Authcontext } from '../../providers/Authprovider';
 import Loginlayout from '../../layouts/Loginlayout';
 
 const Header = () => {
+
     const { user, logOut } = useContext(Authcontext)
     const handellogOut = () => {
         logOut()
@@ -15,6 +16,8 @@ const Header = () => {
                 console.log(error);
             })
     }
+
+
     return (
         <Container>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -30,9 +33,12 @@ const Header = () => {
                         </Nav>
                         <Nav>
                             {user &&
-                                <Image style={{ height: '45px' }} src={man} roundedCircle />
+                                <Image title={user.displayName} style={{ height: '45px' }} src={user.photoURL} roundedCircle />
+
 
                             }
+
+
 
                             {
                                 user ?
