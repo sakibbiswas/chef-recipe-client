@@ -18,6 +18,7 @@ import Login from './pages/login/Login/Login';
 import Authprovider from './providers/Authprovider';
 import Register from './pages/login/Register/Register';
 import Privaterout from './route/privaterout/Privaterout';
+import Rightnav from './shared/Rightnav/Rightnav';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/googlelogin',
+        element: <Rightnav></Rightnav>
       },
     ]
   },

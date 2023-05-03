@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, ListGroup } from 'react-bootstrap';
 import { FaGoogle, FaGithub, FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
 import Foodpic from '../foodpic/Foodpic';
+import { Authcontext } from '../../providers/Authprovider';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Rightnav = () => {
+    const { singnInGoogle } = useContext(Authcontext)
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/country/0'
+    console.log(location);
+    const Navigate = useNavigate()
+    const handelgoogle = () => {
+        singnInGoogle()
+            .then(result => {
+                const loggeduser = result.user;
+                console.log(loggeduser);
+                Navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
     return (
         <div>
             <h3>Login with</h3>
             <div >
-                <Button className='mb-2 ' variant="primary"> <FaGoogle /> Login with google</Button>
+                <Button onClick={handelgoogle} className='mb-2 ' variant="primary"> <FaGoogle /> Login with google</Button>
                 <Button variant="secondary"> <FaGithub /> Login with github</Button>
             </div>
             <div>

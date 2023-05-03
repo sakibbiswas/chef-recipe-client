@@ -7,7 +7,7 @@ import { Authcontext } from '../../../providers/Authprovider';
 const Login = () => {
     const { signIN } = useContext(Authcontext)
     const location = useLocation();
-    const from = location.state?.from?.pathname || '/category/0'
+    const from = location.state?.from?.pathname || '/country/0'
     console.log(location);
     const Navigate = useNavigate()
     const handellogin = (event) => {
