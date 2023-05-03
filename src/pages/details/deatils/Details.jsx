@@ -7,13 +7,33 @@ import pic3 from "../../../../public/assets/Falooda-1-960x960.jpg.webp"
 import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Details = () => {
+    const [Accepted, setAccepted] = useState(true);
+    const notify = () => {
+
+        if (!Accepted) {
+            // toast("Wow so easy !");
+
+        }
+        else {
+            setAccepted();
+            toast("This recipe is favorite !");
+
+        }
+    }
     const chefdata = useLoaderData();
     console.log(chefdata);
     const { title, details, Biodata, name, rating, author, _id, image_url, thumbnail_url, experience, likes, number } = chefdata;
+
+    // const handelaccept = event => {
+    //     setAccepted(event.target.checked)
+    // }
     return (
+
         <Container>
 
             <Card className='mb-4' >
@@ -41,11 +61,15 @@ const Details = () => {
                                     lead-in to additional content. This content is a little bit
                                     longer.
                                 </Card.Text>
-                                <div className="flex-grow-1 d-flex align-items-center ">
+                                <div className="flex-grow-1 mb-3 d-flex align-items-center ">
                                     <Rating style={{ maxWidth: 250 }} value={Math.round(rating?.number || 0)} readOnly />
                                     <span className='ms-2'>{rating?.number}</span>
                                 </div>
-                                <Button variant="primary">Favorite</Button>
+                                <div >
+
+                                    <Button onClick={notify} variant="primary" disabled={!Accepted}>Favorite</Button>
+                                    <ToastContainer />
+                                </div>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -59,11 +83,13 @@ const Details = () => {
                                     lead-in to additional content. This content is a little bit
                                     longer.
                                 </Card.Text>
-                                <div className="flex-grow-1 d-flex align-items-center ">
+                                <div className="flex-grow-1 
+                               mb-3 d-flex align-items-center ">
                                     <Rating style={{ maxWidth: 250 }} value={Math.round(rating?.number || 0)} readOnly />
                                     <span className='ms-2'>{rating?.number}</span>
                                 </div>
-                                <Button variant="primary">Favorite</Button>
+                                <Button onClick={notify} variant="primary" disabled={!Accepted}>Favorite</Button>
+                                <ToastContainer />
                             </Card.Body>
                         </Card>
                     </Col>
@@ -77,11 +103,12 @@ const Details = () => {
                                     lead-in to additional content. This content is a little bit
                                     longer.
                                 </Card.Text>
-                                <div className="flex-grow-1 d-flex align-items-center ">
+                                <div className="flex-grow-1 mb-3 d-flex align-items-center ">
                                     <Rating style={{ maxWidth: 250 }} value={Math.round(rating?.number || 0)} readOnly />
                                     <span className='ms-2'>{rating?.number}</span>
                                 </div>
-                                <Button variant="primary">Favorite</Button>
+                                <Button onClick={notify} variant="primary" disabled={!Accepted}>Favorite</Button>
+                                <ToastContainer />
                             </Card.Body>
                         </Card>
                     </Col>
@@ -91,7 +118,7 @@ const Details = () => {
                 </Row>
             </div>
         </Container>
-    );
+    )
 };
 
 export default Details;
