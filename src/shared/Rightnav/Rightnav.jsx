@@ -6,7 +6,7 @@ import { Authcontext } from '../../providers/Authprovider';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Rightnav = () => {
-    const { singnInGoogle } = useContext(Authcontext)
+    const { singnInGoogle, githubsignIn } = useContext(Authcontext)
     const location = useLocation();
     const from = location.state?.from?.pathname || '/country/0'
     console.log(location);
@@ -22,12 +22,23 @@ const Rightnav = () => {
                 console.log(error);
             })
     }
+    const hadelgithub = () => {
+        githubsignIn()
+            .then(result => {
+                const loggeduser = result.user;
+                console.log(loggeduser);
+                Navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
     return (
         <div>
             <h3>Login with</h3>
             <div >
                 <Button onClick={handelgoogle} className='mb-2 ' variant="primary"> <FaGoogle /> Login with google</Button>
-                <Button variant="secondary"> <FaGithub /> Login with github</Button>
+                <Button onClick={hadelgithub} variant="secondary"> <FaGithub /> Login with github</Button>
             </div>
             <div>
                 <h2>Find us on</h2>

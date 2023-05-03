@@ -9,6 +9,9 @@ const auth = getAuth(app)
 import { GoogleAuthProvider } from "firebase/auth";
 
 const googleprovider = new GoogleAuthProvider();
+import { GithubAuthProvider } from "firebase/auth";
+
+const githubprovider = new GithubAuthProvider();
 
 const Authprovider = ({ children }) => {
     const [user, setuser] = useState(null)
@@ -23,8 +26,13 @@ const Authprovider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
     const singnInGoogle = () => {
-        return signInWithPopup(auth, googleprovider)
         setloading(true)
+        return signInWithPopup(auth, googleprovider)
+
+    }
+    const githubsignIn = () => {
+        setloading(true)
+        return signInWithPopup(auth, githubprovider)
     }
     const logOut = () => {
         setloading(true)
@@ -48,6 +56,7 @@ const Authprovider = ({ children }) => {
         signIN,
         logOut,
         singnInGoogle,
+        githubsignIn
     }
     return (
         <Authcontext.Provider value={authinfo}>

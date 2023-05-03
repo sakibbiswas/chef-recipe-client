@@ -31,7 +31,7 @@ const Header = () => {
                             <Nav.Link href="#pricing">Blog</Nav.Link>
 
                         </Nav>
-                        <Nav>
+                        <Nav className='gap-3'>
                             {user &&
                                 <Image title={user.displayName} style={{ height: '45px' }} src={user.photoURL} roundedCircle />
 
