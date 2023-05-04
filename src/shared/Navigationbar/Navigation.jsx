@@ -17,11 +17,13 @@ const Navigation = () => {
 
     return (
         <Container>
-            <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+            <Navbar collapseOnSelect expand="lg" bg="" variant="">
                 <Container>
                     <Navbar.Brand href="#home" className='text-opacity-100 text-secondary fw-bold fs-3'>Food-Hunter</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
+
+                    <Navbar.Collapse id="responsive-navbar-nav"
+                    >
                         <Nav className="mx-auto">
                             <Nav.Link className=' fw-semibold d-flex text-secondary text-decoration-none align-items-center ms-4' >
                                 <ActiveLink className='fw-semibold d-flex text-secondary text-decoration-none align-items-center ms-4' to="/country/0">Home</ActiveLink>

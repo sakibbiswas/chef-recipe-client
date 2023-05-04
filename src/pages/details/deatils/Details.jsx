@@ -13,6 +13,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 
+
 const Details = () => {
     const [Accepted, setAccepted] = useState(true);
     const notify = () => {
@@ -32,9 +33,7 @@ const Details = () => {
     console.log(chefdata);
     const { title, details, Biodata, name, rating, author, _id, image_url, thumbnail_url, experience, likes, number } = chefdata;
 
-    // const handelaccept = event => {
-    //     setAccepted(event.target.checked)
-    // }
+
     return (
 
         <Container>
@@ -110,7 +109,7 @@ const Details = () => {
                                 <ToastContainer />
                             </Card.Body>
                         </Card>
-                    </Col>
+                    </Col >
                     <Col >
                         <Card>
                             <LazyLoadImage variant='top' effect="blur"
@@ -135,9 +134,9 @@ const Details = () => {
 
 
 
-                </Row>
-            </div>
-        </Container>
+                </Row >
+            </div >
+        </Container >
     )
 };
 
