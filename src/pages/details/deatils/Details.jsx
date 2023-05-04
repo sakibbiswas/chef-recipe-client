@@ -33,7 +33,7 @@ const Details = () => {
 
     const chefdata = useLoaderData();
     // console.log(chefdata);
-    const { title, details, Biodata, name, rating, author, _id, image_url, thumbnail_url, experience, likes, number } = chefdata;
+    const { title, details, Biodata, name, rating, author, _id, image_url, thumbnail_url, experience, likes, number, some_recipe } = chefdata;
 
 
     return (
@@ -54,8 +54,9 @@ const Details = () => {
                     <Card.Text>
                         {Biodata}
                     </Card.Text>
-                    <p className='fw-semibold'>Experience : {experience}</p>
-                    <p className='fw-semibold'>Likes: {author.likes}</p>
+                    <p className='fw-semibold'> <strong className='text-secondary'>Experience :</strong> {experience}</p>
+                    <p className='fw-semibold'> <strong className='text-secondary'>Likes</strong> {author.likes}</p>
+                    <h6 className='fw-semibold '> <strong className='text-secondary'> Some_recipe:</strong> {some_recipe}</h6>
                     <Link to='/country/0'>
                         <Button variant="warning">Go back Home</Button>
                     </Link>

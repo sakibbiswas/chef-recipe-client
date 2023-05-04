@@ -1,8 +1,8 @@
 import React from 'react';
 import { Carousel, Container } from 'react-bootstrap';
-import slider1 from '../../public/assets/vegetarian-recipes-banner-healthy-vegetables-bowl-pan-soup-kitchenware-wooden-surface-57263921.jpg'
-import slider2 from '../../public/assets/cooking-tips-receipes-landing-page-template-top-view-table-chefs-hands-online-recipes-courses-homepage-mobile-app-182808823.jpg'
-import slider3 from '../../public/assets/spring-recipe-web-banner.jpg'
+import slider1 from '../../public/assets/spring-recipe-web-banner.jpg'
+import slider2 from '../../public/assets/Good_Food_Display_-_NCI_Visuals_Online.jpg'
+import slider3 from '../../public/assets/vegetables-752153__340.jpg'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 const Slider = () => {
     return (

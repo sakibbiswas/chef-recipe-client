@@ -76,7 +76,7 @@ const router = createBrowserRouter([
       {
         path: ':id',
         element: <Country></Country>,
-        loader: ({ params }) => fetch(`http://localhost:5000/countries/${params.id}`)
+        loader: ({ params }) => fetch(`https://chef-racipe-server.vercel.app/countries/${params.id}`)
       }
     ]
   },
@@ -88,7 +88,7 @@ const router = createBrowserRouter([
       {
         path: ':id',
         element: <Privaterout> <Details></Details></Privaterout>,
-        loader: ({ params }) => fetch(`http://localhost:5000/chef/${params.id}`)
+        loader: ({ params }) => fetch(`https://chef-racipe-server.vercel.app/chef/${params.id}`)
       }
 
     ]
