@@ -9,7 +9,7 @@ const Qustion = () => {
   return (
     <Container className="App">
       <div className='mt-4'>
-        <Pdf targetRef={ref} filename="code-example.pdf">
+        <Pdf targetRef={ref} filename="Blogs.pdf">
           {({ toPdf }) => <Button onClick={toPdf}>Generate Pdf</Button>}
         </Pdf>
       </div>
