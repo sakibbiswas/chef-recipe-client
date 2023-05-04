@@ -25,7 +25,7 @@ import Qustion from './pages/Qustion/Qustion';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Navigate to="/country"></Navigate>
+    element: <Navigate to="/country/0"></Navigate>
   },
   {
     path: '/',
