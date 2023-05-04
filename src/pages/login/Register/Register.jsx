@@ -31,6 +31,7 @@ const Register = () => {
                 console.log(error);
                 seterror(error.message)
             })
+
     }
 
     const handelaccept = event => {

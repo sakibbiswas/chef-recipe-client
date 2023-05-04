@@ -8,7 +8,7 @@ import Footer from '../shared/footer/Footer';
 const Cheflayout = () => {
     return (
         <Container>
-            <Header></Header>
+            {/* <Header></Header> */}
             <Container className='mt-3'>
 
                 <Row>

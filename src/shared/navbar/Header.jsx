@@ -63,7 +63,7 @@ const Header = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar >
-            {/* <Slider></Slider> */}
+            <Slider></Slider>
         </Container >
     );
 };

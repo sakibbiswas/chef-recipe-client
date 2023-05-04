@@ -5,7 +5,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import { Link } from 'react-router-dom';
 
 const Foodcard = ({ country }) => {
-    const { _id, name, img, image_url, author, title, experience, Numbers_of_recipes, likes } = country
+    const { _id, name, img, image_url, author, title, experience, Numbers_of_recipes, likes, some_recipe } = country;
     return (
         <div>
             <Row md={1} className="g-1">
@@ -18,11 +18,12 @@ const Foodcard = ({ country }) => {
                             <Card.Title>{title}</Card.Title>
                             <Card.Text>
                                 <div className="">
-                                    <p className='fw-semibold'>Years of experience{experience} </p>
-                                    <p className='fw-semibold'> Numbers of recipes : {Numbers_of_recipes}</p>
+                                    <p className='fw-semibold text-secondary'>Years of experience{experience} </p>
+                                    <p className='fw-semibold text-secondary'> Numbers of recipes : {Numbers_of_recipes}</p>
+                                    <p className='fw-semibold text-secondary'>Some_recipe :{some_recipe}</p>
                                 </div>
                             </Card.Text>
-                            <p className='fw-semibold'>Likes : {author.likes}</p>
+                            <p className='fw-semibold text-secondary'>Likes : {author.likes}</p>
 
                             <Link to={`/chef/${_id}`}>
                                 <Button variant="primary">View Recipes</Button>

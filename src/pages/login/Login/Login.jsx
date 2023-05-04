@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useContext } from 'react';
-import { Button, Container, Form } from 'react-bootstrap';
+import { Button, Container, Form, Toast, ToastContainer } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../../../providers/Authprovider';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Login = () => {
     const [error, seterror] = useState('')
     const [success, setsucces] = useState('')
-    const { signIN, update } = useContext(Authcontext)
+    const { signIN, update, sendpasswordreset } = useContext(Authcontext)
     const location = useLocation();
     const from = location.state?.from?.pathname || '/country/0'
     console.log(location);
     const Navigate = useNavigate()
+    const emailRef = useRef()
     const handellogin = (event) => {
         setsucces('')
         seterror('')
@@ -43,19 +47,36 @@ const Login = () => {
                 // Profile updated!
                 // ...
             }).catch((error) => {
-                // An error occurred
-                // ...
+
             });
 
     }
+    const handelreset = (event) => {
+        const email = emailRef.current.value;
+        if (!email) {
+            alert('Please provide your email address to reset password ')
+        }
+        sendpasswordreset(email)
+            .then(() => {
+                alert('Please check your email')
+                return
+            }).catch((error) => {
+                seterror(error.message)
+            });
+    }
+
     return (
+
         <Container className='mx-auto w-25'>
             <h3>Please Login</h3>
+
             <Form onSubmit={handellogin}>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" name='email' required />
+                    <Form.Control type="email" ref={emailRef} placeholder="Enter email" name='email' required />
+
+
 
                 </Form.Group>
 
@@ -72,7 +93,9 @@ const Login = () => {
                 </Button>
                 <br />
                 <Form.Text className="text-success ">
+                    <p>Forget password ? Please <Button onClick={handelreset} className='btn btn-link text-secondary ' variant="light">Reset password</Button></p>
                     Dont have an account ?  <Link to='/register'>Register</Link>
+
                 </Form.Text>
                 <Form.Text className="text-success">
                     <p className='text-danger'>{error}</p>

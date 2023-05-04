@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import pic1 from "../../../../public/assets/Haleem-960x960.jpg.webp"
 import pic2 from "../../../../public/assets/Seekh-Kebab-960x960.jpg.webp"
 import pic3 from "../../../../public/assets/Falooda-1-960x960.jpg.webp"
@@ -27,6 +27,7 @@ const Details = () => {
 
         }
     }
+
     const chefdata = useLoaderData();
     console.log(chefdata);
     const { title, details, Biodata, name, rating, author, _id, image_url, thumbnail_url, experience, likes, number } = chefdata;
@@ -39,9 +40,7 @@ const Details = () => {
         <Container>
 
             <Card className='mb-4' >
-                {/* <LazyLoadImage>
-                    <Card.Img variant="top" src={image_url} />
-                </LazyLoadImage> */}
+
 
                 <LazyLoadImage variant='top' effect="blur"
                     className='w-100' src={image_url} />
@@ -56,6 +55,9 @@ const Details = () => {
                     </Card.Text>
                     <p className='fw-semibold'>Experience : {experience}</p>
                     <p className='fw-semibold'>Likes: {author.likes}</p>
+                    <Link to='/country/0'>
+                        <Button variant="warning">Go back Home</Button>
+                    </Link>
                 </Card.Body>
             </Card>
 
@@ -67,11 +69,6 @@ const Details = () => {
 
                             <LazyLoadImage variant='top' effect="blur"
                                 className='w-100' src={pic1} />
-                            {/* <Card.Img variant='top' src={pic3} /> */}
-
-
-
-
                             <Card.Body>
                                 <Card.Title> Haleem</Card.Title>
                                 <Card.Text>
