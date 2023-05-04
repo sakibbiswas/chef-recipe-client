@@ -10,7 +10,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 const Leftnav = () => {
     const [countries, setcountries] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/countries')
+        fetch('https://chef-racipe-server.vercel.app/countries')
             .then(res => res.json())
             .then(data => setcountries(data))
             .catch(error => {
