@@ -6,11 +6,12 @@ import pic2 from "../../../../public/assets/Seekh-Kebab-960x960.jpg.webp"
 import pic3 from "../../../../public/assets/Falooda-1-960x960.jpg.webp"
 import { Rating } from '@smastrom/react-rating'
 
-import '@smastrom/react-rating/style.css'
+import '@smastrom/react-rating/style.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+
 
 
 
@@ -29,8 +30,9 @@ const Details = () => {
         }
     }
 
+
     const chefdata = useLoaderData();
-    console.log(chefdata);
+    // console.log(chefdata);
     const { title, details, Biodata, name, rating, author, _id, image_url, thumbnail_url, experience, likes, number } = chefdata;
 
 
@@ -59,6 +61,7 @@ const Details = () => {
                     </Link>
                 </Card.Body>
             </Card>
+
 
             <div>
                 <Row xs={1} md={3} className="g-4">
@@ -90,7 +93,7 @@ const Details = () => {
 
                             <LazyLoadImage variant='top' effect="blur"
                                 className='w-100' src={pic2} />
-                            {/* <Card.Img variant='top' src={pic3} /> */}
+
 
 
 
@@ -136,6 +139,8 @@ const Details = () => {
 
                 </Row >
             </div >
+
+
         </Container >
     )
 };
