@@ -4,10 +4,11 @@ import Slider from '../../slider/Slider';
 import { Link } from 'react-router-dom';
 import { Authcontext } from '../../providers/Authprovider';
 import ActiveLink from '../../activeLink/ActiveLink';
+import useTitle from '../../Hooks/Usetitle';
 
 
 const Header = () => {
-
+    useTitle('Home')
     const { user, logOut } = useContext(Authcontext)
     const handellogOut = () => {
         logOut()

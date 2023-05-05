@@ -4,8 +4,10 @@ import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Authcontext } from '../../../providers/Authprovider';
 import { useState } from 'react';
+import useTitle from '../../../Hooks/Usetitle';
 
 const Register = () => {
+    useTitle('Register')
     const [error, seterror] = useState('')
     const [success, setsucces] = useState('')
     const { createuser } = useContext(Authcontext);

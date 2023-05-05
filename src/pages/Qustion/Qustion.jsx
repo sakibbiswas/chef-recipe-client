@@ -3,9 +3,11 @@ import { Button, Container } from 'react-bootstrap';
 import Pdf from "react-to-pdf";
 
 import "./Qustion.css";
+import useTitle from '../../Hooks/Usetitle';
 const ref = React.createRef();
 
 const Qustion = () => {
+  useTitle('Blogs')
   return (
     <Container className="App w-50">
       <div className='mt-4'>

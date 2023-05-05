@@ -11,11 +11,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import useTitle from '../../../Hooks/Usetitle';
 
 
 
 
 const Details = () => {
+    useTitle('Details')
     const [Accepted, setAccepted] = useState(true);
     const notify = () => {
 
@@ -29,6 +31,7 @@ const Details = () => {
 
         }
     }
+
 
 
     const chefdata = useLoaderData();
@@ -57,7 +60,7 @@ const Details = () => {
                     <p className='fw-semibold'> <strong className='text-secondary'>Experience :</strong> {experience}</p>
 
                     <h6 className='fw-semibold '> <strong className='text-secondary'> Some_recipe:</strong> {some_recipe}</h6>
-                    <h6 className='fw-semibold '> <strong className='text-secondary'> Numbers_of_recipes:</strong> {Numbers_of_recipes}</h6>
+                    <h6 className='fw-semibold '> <strong className='text-secondary'> Numbers_of_recipes :</strong> {Numbers_of_recipes}</h6>
                     <Link to='/country/0'>
                         <Button variant="warning">Go back Home</Button>
                     </Link>
