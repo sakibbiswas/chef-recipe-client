@@ -5,9 +5,11 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../../../providers/Authprovider';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../../Hooks/Usetitle';
 
 
 const Login = () => {
+    useTitle('Login')
     const [error, seterror] = useState('')
     const [success, setsucces] = useState('')
     const { signIN, update, sendpasswordreset } = useContext(Authcontext)
