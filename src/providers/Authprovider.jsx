@@ -22,6 +22,8 @@ if (user !== null) {
     const uid = user.uid;
 }
 const Authprovider = ({ children }) => {
+
+
     const [user, setuser] = useState(null)
     const [loading, setloading] = useState(true);
 
@@ -51,12 +53,13 @@ const Authprovider = ({ children }) => {
         setloading(true)
         signOut(auth)
     }
-    const update = () => {
+    const update = (name, photo) => {
         setloading(true)
         return updateProfile(auth.currentUser, {
-
-            displayName: 'sakib sakib', photoURL: "https://lh3.googleusercontent.com/a/AGNmyxYPhTNZa-MgG3FKlbq62ZZsVaRRpxLioO-MOSvN=s96-c"
+            displayName: name,
+            photoURL: photo
         })
+
 
     }
     useEffect(() => {

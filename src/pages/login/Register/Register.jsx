@@ -10,7 +10,7 @@ const Register = () => {
     useTitle('Register')
     const [error, seterror] = useState('')
     const [success, setsucces] = useState('')
-    const { createuser } = useContext(Authcontext);
+    const { createuser, update } = useContext(Authcontext);
     const [Accepted, setAccepted] = useState(false);
     const handelregister = (event) => {
         setsucces('')
@@ -25,6 +25,12 @@ const Register = () => {
             .then(result => {
                 const loggeduser = result.user;
                 console.log(loggeduser);
+
+                loggeduser.displayName = name;
+                loggeduser.photoURL = photo;
+                update(name, photo)
+                    .then(console.log('profile updated'))
+
                 seterror('')
                 event.target.reset()
                 setsucces('User has created successfully')
